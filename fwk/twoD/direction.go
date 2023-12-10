@@ -15,7 +15,13 @@ var (
 
 	DirectionEast = []int{0, +1}
 	DirectionWest = []int{0, -1}
+
 	DirectionStay = []int{0, 0}
+
+	DirectionNE = []int{-1, +1}
+	DirectionNW = []int{-1, -1}
+	DirectionSE = []int{+1, +1}
+	DirectionSW = []int{+1, -1}
 
 	CardinalDirections = map[string][]int{
 		"n": DirectionNorth,
@@ -27,6 +33,14 @@ var (
 
 func RotateClockwise(in []int) []int {
 	return []int{in[1], -in[0]}
+}
+
+func RotateClockwise45(in []int) []int {
+	return []int{in[1] + in[0], -in[0] + in[1]}
+}
+
+func RotateClockwise135(in []int) []int {
+	return []int{in[1] - in[0], -in[0] - in[1]}
 }
 
 func RotateCounterclockwise(in []int) []int {
