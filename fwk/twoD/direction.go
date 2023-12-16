@@ -13,8 +13,8 @@ var (
 	DirectionNorth = []int{-1, 0}
 	DirectionSouth = []int{+1, 0}
 
-	DirectionEast = []int{0, +1}
-	DirectionWest = []int{0, -1}
+	DirectionEast = []int{0, -1}
+	DirectionWest = []int{0, +1}
 
 	DirectionStay = []int{0, 0}
 
