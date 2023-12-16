@@ -11,7 +11,7 @@ import (
 func main() {
 	maze := fwk.ReadInputRunesLines()
 
-	fwk.Solution(1, len(traceBeam(maze, []int{0, 0}, twoD.DirectionWest)))
+	fwk.Solution(1, len(traceBeam(maze, []int{0, 0}, twoD.DirectionEast)))
 	part2(maze)
 }
 
