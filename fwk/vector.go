@@ -19,7 +19,7 @@ func AddVec[V constraints.Integer](a, b []V) []V {
 	return r
 }
 
-func SubVec[V constraints.Integer](a, b []V) []V {
+func SubVec[V constraints.Signed](a, b []V) []V {
 	checkVectorsMatch(a, b)
 
 	r := make([]V, len(a))
@@ -30,7 +30,7 @@ func SubVec[V constraints.Integer](a, b []V) []V {
 	return r
 }
 
-func CalManhattan[V constraints.Integer](a, b []V) V {
+func CalManhattan[V constraints.Signed](a, b []V) V {
 	var manhattan V = 0
 
 	for _, v := range SubVec(a, b) {
@@ -40,7 +40,7 @@ func CalManhattan[V constraints.Integer](a, b []V) V {
 	return manhattan
 }
 
-func AbsVec[V constraints.Integer](a []V) V {
+func AbsVec[V constraints.Signed](a []V) V {
 	var sum V = 0
 
 	for i := range a {

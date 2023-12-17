@@ -2,7 +2,7 @@ package fwk
 
 import "golang.org/x/exp/constraints"
 
-func Abs[V constraints.Integer](a V) V {
+func Abs[V constraints.Signed](a V) V {
 	if a < 0 {
 		return -a
 	}
