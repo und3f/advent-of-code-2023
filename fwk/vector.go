@@ -19,6 +19,15 @@ func AddVec[V constraints.Integer](a, b []V) []V {
 	return r
 }
 
+func MultVecByConstant[V constraints.Integer](a []V, c V) []V {
+	r := make([]V, len(a))
+	for i, v := range a {
+		r[i] = v * c
+	}
+
+	return r
+}
+
 func SubVec[V constraints.Signed](a, b []V) []V {
 	checkVectorsMatch(a, b)
 

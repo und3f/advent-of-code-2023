@@ -11,6 +11,7 @@ type Grid[V constraints.Integer] interface {
 	SetAt(pos []int, value V)
 	CountAll(value V) uint
 	String() string
+	FindDimensions() (tl [2]int, br [2]int)
 }
 
 type InfiniteGrid[V constraints.Integer] struct {
@@ -70,7 +71,7 @@ func (grid *InfiniteGrid[V]) SetAt(pos []int, value V) {
 func (grid *InfiniteGrid[V]) CountAll(value V) uint {
 	var count uint
 
-	tl, br := grid.findDimensions()
+	tl, br := grid.FindDimensions()
 	for y := tl[0]; y <= br[0]; y++ {
 		for x := tl[1]; x <= br[1]; x++ {
 			if grid.GetAt([]int{y, x}) == value {
@@ -85,7 +86,7 @@ func (grid *InfiniteGrid[V]) CountAll(value V) uint {
 func (grid *InfiniteGrid[V]) String() string {
 	var buf bytes.Buffer
 
-	tl, br := grid.findDimensions()
+	tl, br := grid.FindDimensions()
 	for y := tl[0]; y <= br[0]; y++ {
 		for x := tl[1]; x <= br[1]; x++ {
 			buf.WriteString(grid.stringer(grid.GetAt([]int{y, x})))
@@ -96,7 +97,7 @@ func (grid *InfiniteGrid[V]) String() string {
 	return buf.String()
 }
 
-func (grid *InfiniteGrid[V]) findDimensions() (tl [2]int, br [2]int) {
+func (grid *InfiniteGrid[V]) FindDimensions() (tl [2]int, br [2]int) {
 	for y, line := range grid.items {
 		tl[0] = min(tl[0], y)
 		br[0] = max(br[0], y)
