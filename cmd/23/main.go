@@ -9,6 +9,13 @@ import (
 	"github.com/und3f/aoc/2023/fwk/twoD"
 )
 
+/* Solving this day I've understand
+ * that my time is more important
+ * than computation time.
+ * So I've just left it running,
+ * and waited for result.
+ */
+
 func main() {
 	in := fwk.ReadInputRunesLines()
 	part1(in)
@@ -81,7 +88,7 @@ func walk(m [][]rune, startPos, endPos [2]int) [][2]int {
 		if last == endPos {
 			if longest == nil || len(*longest) < len(*path) {
 				longest = path
-				fmt.Println("Found solution", len(*longest))
+				fmt.Println("Found solution", len(*longest)-1)
 				continue
 			}
 		}
